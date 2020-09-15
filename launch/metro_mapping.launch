@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+    
+  <node name="grid_map_2d_mapper" type="grid_map_2d_mapper_node" pkg="grid_map_2d_mapper" output="screen" respawn="true">
+      <param name="min_height" value="-0.25"/>
+      <param name="max_height" value="1.0"/>
+      <param name="range_min" value="0.2"/>
+      <param name="map_frame" value="map"/>
+      <param name="target_frame" value="base_link"/>
+
+      <remap from="/scan_matched_points2" to="/scan_cloud_for_mapping" />
+      <remap from="/scan" to="/scan_output_from_grid_mapper" />
+  </node>
+  
+</launch>
