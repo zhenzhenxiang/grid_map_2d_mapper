@@ -124,7 +124,7 @@ namespace grid_map_2d_mapper
 
     pub_ = nh_.advertise<sensor_msgs::LaserScan>("scan", 10, false);
 
-    map_pub_ = nh_.advertise<nav_msgs::OccupancyGrid>("/map",10);
+    map_pub_ = nh_.advertise<nav_msgs::OccupancyGrid>("/map",10, true);
     //                                                  boost::bind(&GridMap2DMapperNodelet::connectCb, this),
     //                                                  boost::bind(&GridMap2DMapperNodelet::disconnectCb, this));
     
@@ -145,7 +145,7 @@ namespace grid_map_2d_mapper
     grid_map_.add("occupancy_log_odds");
     grid_map_.add("occupancy_prob");
     //grid_map_.add("update_time");
-    grid_map_.setGeometry(grid_map::Length(2.0, 2.0), 0.05);
+    grid_map_.setGeometry(grid_map::Length(2.0, 2.0), 0.03);
     grid_map_.setFrameId(map_frame_);
 
 
