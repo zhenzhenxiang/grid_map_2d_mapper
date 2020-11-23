@@ -72,6 +72,7 @@ namespace grid_map_2d_mapper
     private_nh_.param<double>("scan_time", scan_time_, 0.0);
     private_nh_.param<double>("range_min", range_min_, 0.45);
     private_nh_.param<double>("range_max", range_max_, 15.0);
+    private_nh_.param<double>("grid_res", grid_res_, 0.03);
 
     int concurrency_level;
     private_nh_.param<int>("concurrency_level", concurrency_level, 1);
@@ -145,7 +146,7 @@ namespace grid_map_2d_mapper
     grid_map_.add("occupancy_log_odds");
     grid_map_.add("occupancy_prob");
     //grid_map_.add("update_time");
-    grid_map_.setGeometry(grid_map::Length(2.0, 2.0), 0.03);
+    grid_map_.setGeometry(grid_map::Length(2.0, 2.0), grid_res_);
     grid_map_.setFrameId(map_frame_);
 
 
